@@ -1,0 +1,16 @@
+1、下载文件
+
+curl -O https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-3.0.6.tgz
+
+2、解压
+tar -zxvf mongodb-linux-x86_64-3.0.6.tgz
+
+3、配置服务
+export PATH=/usr/bin/mongodb/mongodb-3.4.7/bin:$PATH
+
+4、服务起停
+RunServer
+./mongod --config ../etc/mongod.conf
+
+StopServer
+./mongod -config ../etc/mongod.conf  --shutdown
