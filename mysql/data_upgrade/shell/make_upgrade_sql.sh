@@ -49,15 +49,13 @@ if [ ! -f $dir/$fn ];
 then
     :>$dir/$fn &&
     chmod g+rwx $dir/$fn
-else
-    rm $dir/$fn &&
-    :>$dir/$fn &&
-    chmod g+rwx $dir/$fn
 fi
 
 count=$(grep -o 'set character_set_database=utf8;' $dir/$fn |wc -l)
 
-if [ $count="0" ];
+echo $count
+
+if [ "0" == $ft -a "0" == $count ];
 then
     echo "set character_set_database=utf8;
 set character_set_server=utf8;
@@ -77,13 +75,28 @@ fi
 
 if [ $type = "0" ];
 then
-    ls ../$file | sed -n /$start/,/$end/p |xargs -n 1 sed '' >> "$dir/$fn"
+    if [ $start == $end ];
+    then
+        ls ../$file | grep $start |xargs -n 1 sed '' >> "$dir/$fn"
+    else
+        ls ../$file | sed -n /$start/,/$end/p |xargs -n 1 sed '' >> "$dir/$fn"
+    fi
 elif [ $type = "1" ];
 then
-    ls $dir1/$file | grep -v "delete" |sed -n /$start/,/$end/p |xargs -n 1 sed '' >> "$dir/$fn"
+    if [ $start == $end ];
+    then
+        ls $dir1/$file | grep -v "delete" | grep $start |xargs -n 1 sed '' >> "$dir/$fn"
+    else
+        ls $dir1/$file | grep -v "delete" | sed -n /$start/,/$end/p |xargs -n 1 sed '' >> "$dir/$fn"
+    fi
 elif [ $type = "2" ];
 then
-    ls $dir1/$file | grep "delete" |sed -n /$start/,/$end/p |xargs -n 1 sed '' >> "$dir/$fn"
+    if [ $start == $end ];
+    then
+        ls $dir1/$file | grep "delete" | grep $start |xargs -n 1 sed '' >> "$dir/$fn"
+    else
+        ls $dir1/$file | grep "delete" | sed -n /$start/,/$end/p |xargs -n 1 sed '' >> "$dir/$fn"
+    fi
 fi
 
 echo "==============================
