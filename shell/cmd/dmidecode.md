@@ -8,7 +8,7 @@ DMI充当了管理工具和系统层之间接口的角色。它建立了标准�
 # 命令使用说明 
 dmidecode [OPTIONS]
  Options are:
- -d, --dev-mem FILE     Read memory from device FILE (default: /dev/mem)
+ -d, --dev-mem FILE     Read memory from device FILE (default: /dev/mem) 默认dmidecode解析的信息文件存储位置
  -h, --help             Display this help text and exit
  -q, --quiet            Less verbose output
  -s, --string KEYWORD   Only display the value of the given DMI string
