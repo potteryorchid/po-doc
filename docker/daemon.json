@@ -1,0 +1,6 @@
+{
+   "insecure-registries":[
+       "ampregistry:5000"
+   ],
+   "graph": "/data1/docker"
+}
