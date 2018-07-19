@@ -10,6 +10,9 @@ docker info
 # 查看 Docker 存储目录
 docker info | grep "Docker Root Dir"
 
+# mac 路径
+~/.docker/daemon.json
+
 # 修改配置文件，自定义docker存储路径
 vi /etc/docker/daemon.json
 添加 "graph": "/data1/repo/docker" 自定义docker文件存储路径
