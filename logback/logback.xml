@@ -109,8 +109,8 @@
     <file>${LOG_DIR}/application.log</file>
     <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
       <!-- Daily rollover with compression. -->
-      <fileNamePattern>application-log-%d{yyyy-MM-dd}.gz</fileNamePattern>
-      <!-- Keep 7 days worth history. -->
+      <fileNamePattern>application-log-%d{yyyy-MM-dd_HH}.gz</fileNamePattern>
+      <!-- Keep 7 hours worth history. -->
       <maxHistory>7</maxHistory>
     </rollingPolicy>
     <encoder>
@@ -125,8 +125,8 @@
     <file>${LOG_DIR}/application-access.log</file>
     <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
       <!-- Daily rollover with compression. -->
-      <fileNamePattern>application-access-log-%d{yyyy-MM-dd}.gz</fileNamePattern>
-      <!-- Keep 1 week worth history. -->
+      <fileNamePattern>application-access-log-%d{yyyy-MM-dd_HH:mm}.gz</fileNamePattern>
+      <!-- Keep 7 minutes worth history. -->
       <maxHistory>7</maxHistory>
     </rollingPolicy>
     <encoder>
