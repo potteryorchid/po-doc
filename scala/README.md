@@ -8,9 +8,10 @@ Java HotSpot(TM) 64-Bit Server VM (build 25.141-b15, mixed mode)
 
 3. Swith into scala install path and decompress .tgz file.
 
-4. Add "export PATH=$PATH:/usr/local/apps/scala-2.12.6/bin" to env config file.
+4. Add "export SCALA_HOME=/usr/local/apps/scala-2.12.6
+export PATH=$PATH:$SCALA_HOME/bin" to env config file.
 mac : ~/.bash_profile
 
-5. Reopen cmd window enter cmd: scala, output as below.
+5. Run "source ~/.bash_profile" or reopen cmd window enter cmd: scala, output as below.
 Welcome to Scala 2.12.6 (Java HotSpot(TM) 64-Bit Server VM, Java 1.8.0_141).
 Type in expressions for evaluation. Or try :help.
