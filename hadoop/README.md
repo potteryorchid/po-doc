@@ -7,6 +7,15 @@ mac : ~/.bash_profile
 
 2. Run "source ~/.bash_profile" or reopen cmd window.
 
+# ssh免密配置（此处配置的是localhost免密，将A服务的 id_rsa.pub 信息存放到B服务的 authorized_keys 中可以实现从A服务免密登录B服务)
+1. Now check that you can ssh to the localhost without a passphrase:
+$ ssh localhost
+
+2. If you cannot ssh to localhost without a passphrase, execute the following commands:
+$ ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa
+$ cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+$ chmod 0600 ~/.ssh/authorized_keys
+
 # Standalone config
 1. 下载安装包，解压到安装目录。
 
@@ -71,3 +80,5 @@ mac 下查看java安装路径的cmd为：/usr/libexec/java_home -V
 - Start NameNode daemon and DataNode daemon: $ sbin/start-dfs.sh
 - Browse the web interface for the NameNode, by default it is available at: NameNode - http://localhost:50070/
 - Stop the daemons with: $ sbin/stop-dfs.sh
+
+
