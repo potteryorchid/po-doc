@@ -9,3 +9,12 @@ export SPARK_HOME=/usr/local/apps/spark-2.3.1-out-hadoop
 export PATH=$PATH:$SPARK_HOME/bin
 
 4、Run "source ~/.bash_profile" cmd.
+
+### Spark config ###
+1. spark-env.sh
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_141.jdk/Contents/Home
+export SCALA_HOME=/usr/local/apps/scala-2.12.6
+export HADOOP_HOME=/usr/local/apps/hadoop-2.7.6
+export HADOOP_CONF_DIR=/usr/local/apps/hadoop-2.7.6
+
+2. 
