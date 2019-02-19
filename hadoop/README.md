@@ -3,6 +3,13 @@
 # Get hadoop version info
 $HADOOP_HOME/sbin/hadoop version
 
+# Defautl web uri
+http://localhost:50070
+
+# httpfs.sh
+sbin/httpfs.sh start
+sbin/httpfs.sh stop
+
 # Hadoop env config(如果需要经常命令交互可以配置环境变量，否则不需要配置，环境变量只是方便在任何目录下输入Hadoop命令)
 1. Add "export HADOOP_HOME=/usr/local/apps/hadoop-2.7.6
 export PATH=$PATH:$HADOOP_HOME/bin" to env config file.

@@ -4,7 +4,7 @@ java version "1.8.0_141"
 Java(TM) SE Runtime Environment (build 1.8.0_141-b15)
 Java HotSpot(TM) 64-Bit Server VM (build 25.141-b15, mixed mode)
 
-2. Move scala-version.tgz to the install path.
+2. Move scala-version.tgz to the install path (Download url: https://www.scala-lang.org/download/2.11.12.html).
 
 3. Swith into scala install path and decompress .tgz file.
 
