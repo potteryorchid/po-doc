@@ -1,11 +1,10 @@
 {
-   "insecure-registries": [
-       "ampregistry:5000"
-   ],
-   "data-root": "/mnt/data/docker",
-   "insecure-registries": [
-      "https://registry.docker-cn.com",
-      "http://hub-mirror.c.163.com",
-      "https://docker.mirrors.ustc.edu.cn"
-   ]
+  "insecure-registries":[
+  	"ampregistry:5000"
+  ],
+  "data-root": "/mnt/data/docker",
+  "registry-mirrors": [
+   	"https://hhtq88qz.mirror.aliyuncs.com",
+   	"https://docker.mirrors.ustc.edu.cn"
+  ]
 }

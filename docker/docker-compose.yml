@@ -1,0 +1,84 @@
+version: '3.7'
+networks: 
+  mynet:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.19.0.0/24
+services:
+    zk1:
+        image: zookeeper:dolphin
+        restart: always
+        hostname: zoo1
+        container_name: zk1
+        networks:
+            mynet:
+                ipv4_address: 172.19.0.2
+        ports:
+            - "2181:2181"
+        volumes:
+            - /mnt/data/zookeeper/zk1/conf:/conf
+            - /mnt/data/zookeeper/zk1/data:/data
+            - /mnt/data/zookeeper/zk1/datalog:/datalog
+            - /mnt/data/zookeeper/hosts:/etc/hosts
+        environment:
+            ZOO_MY_ID: 1
+            ZOO_SERVERS: server.1=0.0.0.0:2888:3888;2181 server.2=zoo2:2888:3888;2181 server.3=zoo3:2888:3888;2181
+ 
+    zk2:
+        image: zookeeper:dolphin
+        restart: always
+        hostname: zoo2
+        container_name: zk2
+        networks:
+            mynet:
+                ipv4_address: 172.19.0.3
+        ports:
+            - "2182:2181"
+        volumes:
+            - /mnt/data/zookeeper/zk2/conf:/conf
+            - /mnt/data/zookeeper/zk2/data:/data
+            - /mnt/data/zookeeper/zk2/datalog:/datalog
+            - /mnt/data/zookeeper/hosts:/etc/hosts
+        environment:
+            ZOO_MY_ID: 2
+            ZOO_SERVERS: server.1=zoo1:2888:3888;2181 server.2=0.0.0.0:2888:3888;2181 server.3=zoo3:2888:3888;2181
+ 
+    zk3:
+        image: zookeeper:dolphin
+        restart: always
+        hostname: zoo3
+        container_name: zk3
+        networks:
+            mynet:
+                ipv4_address: 172.19.0.4
+        ports:
+            - "2183:2181"
+        volumes:
+            - /mnt/data/zookeeper/zk3/conf:/conf
+            - /mnt/data/zookeeper/zk3/data:/data
+            - /mnt/data/zookeeper/zk3/datalog:/datalog
+            - /mnt/data/zookeeper/hosts:/etc/hosts
+        environment:
+            ZOO_MY_ID: 3
+            ZOO_SERVERS: server.1=zoo1:2888:3888;2181 server.2=zoo2:2888:3888;2181 server.3=0.0.0.0:2888:3888;2181
+
+    mar1:
+        image: mariadb:10.4.8
+        restart: always
+        hostname: mariadb1
+        container_name: mar1
+        networks:
+            mynet:
+                ipv4_address: 172.19.0.7
+        ports:
+            - "3306:3306"
+        volumes:
+            - /mnt/data/mariadb/1/etc/my.cnf:/etc/mysql/my.cnf
+            - /mnt/data/mariadb/1/data:/var/lib/mysql
+            - /mnt/data/mariadb/1/log:/var/log/mysql
+            - /mnt/data/mariadb/hosts:/etc/hosts
+        environment:
+            MYSQL_ROOT_PASSWORD: root
+            MYSQL_USER: mysql
+            MYSQL_PASSWORD: mysql
