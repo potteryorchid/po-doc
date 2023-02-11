@@ -1,6 +1,0 @@
-DELETE FROM facecompare.rxkk_terminal;
-
-DELETE FROM facecompare.rxkk_control_management;
-DELETE FROM facecompare.rxkk_control_managemenrt_photo_album;
-DELETE FROM facecompare.rxkk_control_managemenrt_terminal;
-DELETE FROM facecompare.rxkk_core_setting;
